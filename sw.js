@@ -1,4 +1,4 @@
-var APP_PREFIX = 'fizz-hackathon-2015/';
+var APP_PREFIX = '';//'fizz-hackathon-2015/';
 var CACHE_NAME = 'my-site-cache-v2';
 var urlsToCache = [
   APP_PREFIX + 'index.html',
