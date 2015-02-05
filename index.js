@@ -1,4 +1,4 @@
-navigator.serviceWorker.register('fizz-hackathon-2015/sw.js', { scope: 'fizz-hackathon-2015' })
+navigator.serviceWorker.register('/fizz-hackathon-2015/sw.js')
   .then(function(registration) {
     console.log('ServiceWorker registration successful with scope: ',
                 registration.scope);
