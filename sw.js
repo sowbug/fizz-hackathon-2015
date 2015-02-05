@@ -1,7 +1,8 @@
+var APP_PREFIX = 'fizz-hackathon-2015/';
 var CACHE_NAME = 'my-site-cache-v1';
 var urlsToCache = [
-  'index.html',
-  'index.js'
+  APP_PREFIX + 'index.html',
+  APP_PREFIX + 'index.js'
 ];
 
 self.addEventListener('install', function(event) {
