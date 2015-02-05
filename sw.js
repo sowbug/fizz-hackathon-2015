@@ -12,10 +12,7 @@ self.addEventListener('install', function(event) {
     caches.open(CACHE_NAME)
       .then(function(cache) {
         console.log('Opened cache');
-        return caches.addAll(urlsToCache)
-          .then(function(response) {
-            console.log('allAdd', response);
-          });
+        return caches.addAll(urlsToCache);
       })
   );
 });
@@ -26,13 +23,7 @@ self.addEventListener('fetch', function(event) {
     caches.match(event.request)
       .then(function(response) {
         console.log('response', response);
-        if (response) {
-          console.log('returning response', response);
-          return response;
-        }
-
-        console.log('fetch', event.request);
-        return fetch(event.request);
+        return response || fetch(event.request);
       })
   );
 });
