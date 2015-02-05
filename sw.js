@@ -1,6 +1,7 @@
-importScripts('serviceworker-cache-polyfill.js');
-
 var APP_PREFIX = '/fizz-hackathon-2015/';
+
+importScripts(APP_PREFIX + 'serviceworker-cache-polyfill.js');
+
 var CACHE_NAME = 'my-site-cache-v2';
 var urlsToCache = [
   APP_PREFIX + '',
