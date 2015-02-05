@@ -1,19 +1,21 @@
-var APP_PREFIX = '';//'fizz-hackathon-2015/';
+var APP_PREFIX = '/fizz-hackathon-2015/';
 var CACHE_NAME = 'my-site-cache-v2';
 var urlsToCache = [
   APP_PREFIX + 'index.html',
   APP_PREFIX + 'index.js'
 ];
 
-console.log('sw.js');
-
 self.addEventListener('install', function(event) {
-  // Perform install steps
+  console.log('install event', event);
+
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(function(cache) {
         console.log('Opened cache');
-        return cache.addAll(urlsToCache);
+        return cache.addAll(urlsToCache)
+          .then(function(response) {
+            console.log('allAdd', response);
+          });
       })
   );
 });
@@ -24,11 +26,12 @@ self.addEventListener('fetch', function(event) {
     caches.match(event.request)
       .then(function(response) {
         console.log('response', response);
-        // Cache hit - return response
         if (response) {
+          console.log('returning response', response);
           return response;
         }
 
+        console.log('fetch', event.request);
         return fetch(event.request);
       })
   );
