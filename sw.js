@@ -1,7 +1,7 @@
 var APP_PREFIX = '/fizz-hackathon-2015/';
 var CACHE_NAME = 'my-site-cache-v2';
 var urlsToCache = [
-  APP_PREFIX + 'index.html',
+  APP_PREFIX + '',
   APP_PREFIX + 'index.js'
 ];
 
@@ -12,7 +12,7 @@ self.addEventListener('install', function(event) {
     caches.open(CACHE_NAME)
       .then(function(cache) {
         console.log('Opened cache');
-        return cache.addAll(urlsToCache)
+        return caches.addAll(urlsToCache)
           .then(function(response) {
             console.log('allAdd', response);
           });
